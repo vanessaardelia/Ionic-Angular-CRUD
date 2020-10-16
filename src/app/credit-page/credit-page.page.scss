@@ -1,0 +1,22 @@
+ion-card {
+    width: 100%;
+    border-radius: 16px;
+    --background: #FEF4F1;
+}
+
+.avatar {
+    justify-content: center;
+    border-radius: 50%;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}

@@ -1,0 +1,153 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="admin-page"></ion-back-button>
+    </ion-buttons>
+    <ion-title>create</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-list>
+      <ion-item>
+        <ion-label size="2">Category</ion-label>
+        <ion-select
+          size="10"
+          [(ngModel)]="selectedVal"
+          (ionChange)="OnChange($event)"
+          ok-text="Okay"
+          cancel-text="Cancel"
+          formControlName="chooseCategory"
+        >
+          <ion-select-option
+            *ngFor="let data of listCategory"
+            [value]="data.type"
+          >
+            {{ data.name }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Image URL</ion-label>
+        <ion-input
+          type="text"
+          formControlName="img"
+          placeholder="https://images.google.com/"></ion-input>
+      </ion-item>
+      <p class="info">Multi images use comma and space (ex. A, B)</p>
+      <ion-item>
+        <ion-label position="floating">Brand</ion-label>
+        <ion-input
+          required
+          type="text"
+          formControlName="brand"
+          placeholder="Intel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Model</ion-label>
+        <ion-input
+          required
+          type="text"
+          formControlName="model"
+          placeholder="Rayzen 123"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Price</ion-label>
+        <ion-input
+          required
+          type="number"
+          min="10000"
+          formControlName="price">Rp. </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Stock</ion-label>
+        <ion-input
+          required
+          type="number"
+          min="0"
+          formControlName="stock"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <h2>Detail</h2>
+    <ion-list *ngIf="ram">
+      <ion-item>
+        <ion-label position="stacked">Speed (MHz)</ion-label>
+        <ion-input
+          required
+          type="number"
+          min="0"
+          formControlName="speed"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Size (Gb)</ion-label>
+        <ion-input
+          required
+          type="number"
+          min="0"
+          formControlName="size"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="cpu">
+      <ion-item>
+        <ion-label position="stacked">Base clock (GHz)</ion-label>
+        <ion-input
+          required
+          type="number"
+          min="0"
+          formControlName="bClock"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Boost clock (GHz)</ion-label>
+        <ion-input
+          required
+          type="number"
+          min="0"
+          formControlName="bstClock"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Core count</ion-label>
+        <ion-input
+          required
+          type="number"
+          min="0"
+          formControlName="cCount"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Thread count</ion-label>
+        <ion-input
+          required
+          type="number"
+          min="0"
+          formControlName="tCount"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="mb">
+      <ion-item>
+        <ion-label position="stacked">Chipset</ion-label>
+        <ion-input
+          required
+          type="text"
+          placeholder="chipset"
+          formControlName="chipset"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">For CPU</ion-label>
+        <ion-input
+          required
+          type="text"
+          placeholder="Intel"
+          formControlName="fCpu"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="gpu">
+      <p>tidak ada detail</p>
+    </ion-list>
+
+    <ion-button (click)="onSubmit()">Add</ion-button>
+  </form>
+</ion-content>

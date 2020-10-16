@@ -1,0 +1,29 @@
+ion-icon {
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 32px;
+}
+
+ion-list {
+    border-radius: 16px;
+    margin-bottom: 8px;
+}
+
+ion-item {
+    --background: #FEF4F1;
+    --inner-border-width: 0px;
+}
+
+ion-avatar {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+ion-card {
+    --background: #FEF4F1;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 20px;
+}

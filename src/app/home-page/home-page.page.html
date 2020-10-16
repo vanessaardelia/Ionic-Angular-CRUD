@@ -1,0 +1,270 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="sideBar"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+    <ion-button fill="clear" slot="primary" (click)="changeLayout()"><ion-icon name="git-compare-outline"></ion-icon></ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content mode="ios" padding>
+  <ion-grid>
+    <!-- List layout -->
+    <ion-row *ngIf="!grid">
+      <ion-col>
+        <!-- cpu -->
+        <ion-list>
+          <ion-item [routerLink]="[ './', cpu.id]" *ngFor="let cpu of cpus">
+            <ion-avatar slot="start">
+              <img [src]="cpu.image[0]">
+            </ion-avatar>
+            <ion-label>
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="12">
+                    <h2 class="title">{{ cpu.model }}</h2>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="2">
+                    <ion-icon name="pricetags-outline"></ion-icon>
+                  </ion-col>
+                  <ion-col size="10">
+                    <h2>Rp {{ cpu.price }}</h2>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="2">
+                    <ion-icon name="analytics-outline"></ion-icon>
+                  </ion-col>
+                  <ion-col size="10">
+                      <h2>{{ cpu.stock }}</h2>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+        <!-- ram -->
+        <ion-list>
+          <ion-item [routerLink]="[ './', ram.id]" *ngFor="let ram of rams">
+            <ion-avatar slot="start">
+              <img [src]="ram.image[0]">
+            </ion-avatar>
+            <ion-label>
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="12">
+                    <h2 class="title">{{ ram.model }}</h2>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="2">
+                    <ion-icon name="pricetags-outline"></ion-icon>
+                  </ion-col>
+                  <ion-col size="10">
+                    <h2>Rp {{ ram.price }}</h2>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="2">
+                    <ion-icon name="analytics-outline"></ion-icon>
+                  </ion-col>
+                  <ion-col size="10">
+                      <h2>{{ ram.stock }}</h2>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+        <!-- motherboard -->
+        <ion-list>
+          <ion-item [routerLink]="[ './', mb.id]" *ngFor="let mb of mbs">
+            <ion-avatar slot="start">
+              <img [src]="mb.image[0]">
+            </ion-avatar>
+            <ion-label>
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="12">
+                    <h2 class="title">{{ mb.model }}</h2>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="2">
+                    <ion-icon name="pricetags-outline"></ion-icon>
+                  </ion-col>
+                  <ion-col size="10">
+                    <h2>Rp {{ mb.price }}</h2>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="2">
+                    <ion-icon name="analytics-outline"></ion-icon>
+                  </ion-col>
+                  <ion-col size="10">
+                      <h2>{{ mb.stock }}</h2>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+        <!-- GPU -->
+        <ion-list>
+          <ion-item [routerLink]="[ './', gp.id]" *ngFor="let gp of gpu">
+            <ion-avatar slot="start">
+              <img [src]="gp.image[0]">
+            </ion-avatar>
+            <ion-label>
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="12">
+                    <h2 class="title">{{ gp.model }}</h2>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="2">
+                    <ion-icon name="pricetags-outline"></ion-icon>
+                  </ion-col>
+                  <ion-col size="10">
+                    <h2>Rp {{ gp.price }}</h2>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="2">
+                    <ion-icon name="analytics-outline"></ion-icon>
+                  </ion-col>
+                  <ion-col size="10">
+                      <h2>{{ gp.stock }}</h2>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="grid">
+      <!-- CPU -->
+      <ion-col size="6" [routerLink]="[ './', cpu.id]" *ngFor="let cpu of cpus">
+        <ion-card class="grid">
+          <img class="grid__img" [src]="cpu.image[0]"/>
+          <ion-col>
+            <ion-card-content>
+              <ion-card-title class="grid__title">
+                {{ cpu.model }}
+              </ion-card-title>
+              <ion-row class="grid__content">
+                <ion-col size="2">
+                  <ion-icon class="grid__icon" name="pricetags-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="10">
+                  <h2>Rp {{ cpu.price }}</h2>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="2">
+                  <ion-icon class="grid__icon" name="analytics-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="10">
+                  <h2>{{ cpu.stock }}</h2>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-col>
+        </ion-card>
+      </ion-col>
+      <!-- RAM -->
+      <ion-col size="6" [routerLink]="[ './', ram.id]" *ngFor="let ram of rams">
+        <ion-card class="grid">
+          <img class="grid__img" [src]="ram.image[0]"/>
+          <ion-col>
+            <ion-card-content>
+              <ion-card-title class="grid__title">
+                {{ ram.model }}
+              </ion-card-title>
+              <ion-row class="grid__content">
+                <ion-col size="2">
+                  <ion-icon class="grid__icon" name="pricetags-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="10">
+                  <h2>Rp {{ ram.price }}</h2>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="2">
+                  <ion-icon class="grid__icon" name="analytics-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="10">
+                    <h2>{{ ram.stock }}</h2>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-col>
+        </ion-card>
+      </ion-col>
+      <!-- motherboard -->
+      <ion-col size="6" [routerLink]="[ './', mb.id]" *ngFor="let mb of mbs">
+        <ion-card class="grid">
+          <img class="grid__img" [src]="mb.image[0]"/>
+          <ion-col>
+            <ion-card-content>
+              <ion-card-title class="grid__title">
+                {{ mb.model }}
+              </ion-card-title>
+              <ion-row class="grid__content">
+                <ion-col size="2">
+                  <ion-icon class="grid__icon" name="pricetags-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="10">
+                  <h2>Rp {{ mb.price }}</h2>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="2">
+                  <ion-icon class="grid__icon" name="analytics-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="10">
+                    <h2>{{ mb.stock }}</h2>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-col>
+        </ion-card>
+      </ion-col>
+      <!-- GPU -->
+      <ion-col size="6" [routerLink]="[ './', gp.id]" *ngFor="let gp of gpu">
+        <ion-card class="grid">
+          <img class="grid__img" [src]="gp.image[0]"/>
+          <ion-col>
+            <ion-card-content>
+              <ion-card-title class="grid__title">
+                {{ gp.model }}
+              </ion-card-title>
+              <ion-row class="grid__content">
+                <ion-col size="2">
+                  <ion-icon class="grid__icon" name="pricetags-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="10">
+                  <h2>Rp {{ gp.price }}</h2>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="2">
+                  <ion-icon class="grid__icon" name="analytics-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="10">
+                  <h2>{{ gp.stock }}</h2>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-col>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

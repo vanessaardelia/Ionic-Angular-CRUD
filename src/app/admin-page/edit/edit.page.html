@@ -1,0 +1,157 @@
+<ion-header>
+    <ion-toolbar mode="ios">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="admin-page"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Edit</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-content">
+  <form class="form" [formGroup]="form">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Image URL</ion-label>
+        <ion-input
+          mode="ios"
+          type="text"
+          formControlName="img"
+          [(ngModel)]="img"
+          [(value)]="img"></ion-input>
+      </ion-item>
+      <p class="info">Multi images use comma and space (ex. A, B)</p>
+      <ion-item>
+        <ion-label position="floating">Brand</ion-label>
+        <ion-input
+          mode="ios"
+          type="text"
+          formControlName="brand"
+          [(ngModel)]="brand"
+          [(value)]="brand"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Model</ion-label>
+        <ion-input
+          mode="ios"
+          type="text"
+          formControlName="model"
+          [(ngModel)]="model"
+          [(value)]="model"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Price</ion-label>
+        <ion-input
+          mode="ios"
+          type="number"
+          min="10000"
+          [(ngModel)]="price"
+          [(value)]="price"
+          formControlName="price">Rp. </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Stock</ion-label>
+        <ion-input
+          mode="ios"
+          type="number"
+          min="0"
+          [(ngModel)]="stock"
+          [(value)]="stock"
+          formControlName="stock"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <h2>Detail</h2>
+    <ion-list *ngIf="ram">
+      <ion-item>
+        <ion-label position="stacked">Speed (MHz)</ion-label>
+        <ion-input
+          mode="ios"
+          type="number"
+          min="0"
+          [(ngModel)]="speed"
+          [(value)]="speed"
+          formControlName="speed"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Size (Gb)</ion-label>
+        <ion-input
+          mode="ios"
+          type="number"
+          min="0"
+          [(ngModel)]="size"
+          [(value)]="size"
+          formControlName="size"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="cpu">
+      <ion-item>
+        <ion-label position="stacked">Base clock (GHz)</ion-label>
+        <ion-input
+          mode="ios"
+          type="number"
+          min="0"
+          [(ngModel)]="bClock"
+          [(value)]="bClock"
+          formControlName="bClock"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Boost clock (GHz)</ion-label>
+        <ion-input
+          mode="ios"
+          type="number"
+          min="0"
+          [(ngModel)]="bstClock"
+          [(value)]="bstClock"
+          formControlName="bstClock"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Core count</ion-label>
+        <ion-input
+          mode="ios"
+          type="number"
+          min="0"
+          [(ngModel)]="cCount"
+          [(value)]="cCount"
+          formControlName="cCount"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Thread count</ion-label>
+        <ion-input
+          mode="ios"
+          type="number"
+          min="0"
+          [(ngModel)]="tCount"
+          [(value)]="tCount"
+          formControlName="tCount"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="mb">
+      <ion-item>
+        <ion-label position="stacked">Chipset</ion-label>
+        <ion-input
+          mode="ios"
+          type="text"
+          [(ngModel)]="chipset"
+          [(value)]="chipset"
+          formControlName="chipset"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">For CPU</ion-label>
+        <ion-input
+          mode="ios"
+          type="text"
+          [(ngModel)]="fCpu"
+          [(value)]="fCpu"
+          formControlName="fCpu"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="gpu">
+      <p>tidak ada detail</p>
+    </ion-list>
+
+    <ion-button class="ion-button" (click)="onSubmit()">Save</ion-button>
+  </form>
+</ion-content>

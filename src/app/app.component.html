@@ -1,0 +1,38 @@
+<ion-app>
+  <ion-menu mode="ios" slot="start" menuId="sideBar" content-id="sideBar">
+    <ion-header>
+      <ion-toolbar mode="ios">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content mode="ios">
+      <ion-list class="ion-list">
+        <ion-menu-toggle menu="sideBar">
+          <ion-item lines="none" routerLink="home-page">
+            <ion-icon name="home-outline" slot="start"></ion-icon>
+            <ion-label>Home</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle menu="sideBar">
+          <ion-item lines="none" routerLink="admin-page">
+            <ion-icon name="settings-outline" slot="start"></ion-icon>
+            <ion-label>Admin</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle menu="sideBar">
+          <ion-item lines="none" routerLink="credit-page">
+            <ion-icon name="person-circle-outline" slot="start"></ion-icon>
+            <ion-label>About App</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+
+    <ion-footer class="keluar" routerLink="home-page">
+        <ion-toolbar>
+          <ion-title>Keluar</ion-title>
+        </ion-toolbar>
+      </ion-footer>
+  </ion-menu>
+  <ion-router-outlet id="sideBar"></ion-router-outlet>
+</ion-app>

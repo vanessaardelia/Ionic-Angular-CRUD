@@ -1,0 +1,205 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="sideBar"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Admin</ion-title>
+    <ion-button fill="clear" slot="primary" routerLink="create"><ion-icon name="create"></ion-icon></ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- List layout -->
+  <ion-row>
+    <ion-col>
+      <!-- cpu -->
+      <ion-list>
+        <ion-item-sliding *ngFor="let cpu of cpus" #slidingItem>
+          <ion-item-options side="start">
+            <ion-item-option color="danger" (click)="presentAlert(cpu, slidingItem)">
+              <ion-icon name="trash" slot="icon-only"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+
+          <ion-item [routerLink]="[ './', cpu.id]">
+            <ion-avatar slot="start">
+              <img [src]="cpu.image[0]">
+            </ion-avatar>
+            <ion-label>
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="12">
+                    <h2 class="title">{{ cpu.model }}</h2>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="2">
+                    <ion-icon name="pricetags-outline"></ion-icon>
+                  </ion-col>
+                  <ion-col size="10">
+                    <h2>Rp {{ cpu.price }}</h2>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="2">
+                    <ion-icon name="analytics-outline"></ion-icon>
+                  </ion-col>
+                  <ion-col size="10">
+                      <h2>Rp {{ cpu.stock }}</h2>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-label>
+          </ion-item>
+
+          <ion-item-options side="end">
+            <ion-item-option color="warning" [routerLink]="[ './', cpu.id]">
+              <ion-icon name="create-outline" slot="icon-only"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding> 
+      </ion-list>
+      <!-- ram -->
+      <ion-list>
+        <ion-item-sliding *ngFor="let ram of rams" #slidingItem>
+          <ion-item-options side="start">
+            <ion-item-option color="danger" (click)="presentAlert(ram, slidingItem)">
+              <ion-icon name="trash" slot="icon-only"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+
+          <ion-item [routerLink]="[ './', ram.id]">
+            <ion-avatar slot="start">
+              <img [src]="ram.image[0]">
+            </ion-avatar>
+            <ion-label>
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="12">
+                    <h2 class="title">{{ ram.model }}</h2>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="2">
+                    <ion-icon name="pricetags-outline"></ion-icon>
+                  </ion-col>
+                  <ion-col size="10">
+                    <h2>Rp {{ ram.price }}</h2>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="2">
+                    <ion-icon name="analytics-outline"></ion-icon>
+                  </ion-col>
+                  <ion-col size="10">
+                      <h2>Rp {{ ram.stock }}</h2>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-label>
+          </ion-item>
+
+          <ion-item-options side="end">
+            <ion-item-option color="warning" [routerLink]="[ './', ram.id]">
+              <ion-icon name="create-outline" slot="icon-only"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding> 
+      </ion-list>
+      <!-- motherboard -->
+      <ion-list>
+        <ion-item-sliding *ngFor="let mb of mbs" #slidingItem>
+          <ion-item-options side="start">
+            <ion-item-option color="danger" (click)="presentAlert(mb, slidingItem)">
+              <ion-icon name="trash" slot="icon-only"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+
+          <ion-item [routerLink]="[ './', mb.id]">
+            <ion-avatar slot="start">
+              <img [src]="mb.image[0]">
+            </ion-avatar>
+            <ion-label>
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="12">
+                    <h2 class="title">{{ mb.model }}</h2>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="2">
+                    <ion-icon name="pricetags-outline"></ion-icon>
+                  </ion-col>
+                  <ion-col size="10">
+                    <h2>Rp {{ mb.price }}</h2>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="2">
+                    <ion-icon name="analytics-outline"></ion-icon>
+                  </ion-col>
+                  <ion-col size="10">
+                      <h2>Rp {{ mb.stock }}</h2>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-label>
+          </ion-item>
+
+          <ion-item-options side="end">
+            <ion-item-option color="warning" [routerLink]="[ './', mb.id]">
+              <ion-icon name="create-outline" slot="icon-only"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding> 
+      </ion-list>
+      <!-- GPU -->
+      <ion-list>
+        <ion-item-sliding *ngFor="let gp of gpu" #slidingItem>
+          <ion-item-options side="start">
+            <ion-item-option color="danger" (click)="presentAlert(gp, slidingItem)">
+              <ion-icon name="trash" slot="icon-only"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+
+          <ion-item [routerLink]="[ './', gp.id]">
+            <ion-avatar slot="start">
+              <img [src]="gp.image[0]">
+            </ion-avatar>
+            <ion-label>
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="12">
+                    <h2 class="title">{{ gp.model }}</h2>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="2">
+                    <ion-icon name="pricetags-outline"></ion-icon>
+                  </ion-col>
+                  <ion-col size="10">
+                    <h2>Rp {{ gp.price }}</h2>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="2">
+                    <ion-icon name="analytics-outline"></ion-icon>
+                  </ion-col>
+                  <ion-col size="10">
+                      <h2>Rp {{ gp.stock }}</h2>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-label>
+          </ion-item>
+
+          <ion-item-options side="end">
+            <ion-item-option color="warning" [routerLink]="[ './', gp.id]">
+              <ion-icon name="create-outline" slot="icon-only"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-content>
