@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Items, Cpu, Ram, Motherboard } from './items.module';
+import { cpus } from 'os';
 
 @Injectable({
   providedIn: 'root'
@@ -64,19 +65,27 @@ export class ItemsService {
   constructor() { }
 
   getAllCpus() {
-    return [...this.cpus];
+    return this.cpus.filter(cpus => {
+      return cpus.stock !== 0;
+    });
   }
 
   getAllRams() {
-    return [...this.rams];
+    return this.rams.filter(rams => {
+      return rams.stock !== 0;
+    });
   }
 
   getAllMbs() {
-    return [...this.mbs];
+    return this.mbs.filter(mbs => {
+      return mbs.stock !== 0;
+    });
   }
 
   getAllGpu() {
-    return [...this.gpu];
+    return this.gpu.filter(gpu => {
+      return gpu.stock !== 0;
+    });
   }
 
   getItem(itemId: String){
