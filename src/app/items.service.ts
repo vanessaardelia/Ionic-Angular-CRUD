@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Items, Cpu, Ram, Motherboard } from './items.module';
-import { cpus } from 'os';
 
 @Injectable({
   providedIn: 'root'
